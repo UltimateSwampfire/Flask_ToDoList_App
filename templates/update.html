@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to My First Flask App.</h1>
+    </header>
+{% endblock %}
+
+{% block body %}
+
+     <div class = "content">
+        <h1>TaskMaster 1.0</h1>
+        <h2>Update Task</h2>
+
+        <table>
+            <tr>
+                <th>Original Task</th>
+                <th>Added</th>
+            </tr>
+            <tr>
+                <td>{{ task.content }}</td>
+                <td>{{ task.date_created.date() }}</td>
+
+            </tr>
+        </table>
+
+        <form action = '/update/{{ task.id }}' method = 'POST'>
+            <input type = "text" name = 'content' id = 'content' placeholder="Enter Your Updated Task...">
+            <input type = 'submit' value = 'Update Task'>
+        </form>
+     </div>
+</body>
+<footer>
+    &copy; Copyright Revanth N Rajan 2024. All rights reserved.
+</footer>
+
+{% endblock %}
+
